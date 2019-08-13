@@ -62,7 +62,10 @@ public class ShiroRealm extends AuthorizingRealm {
     private SysRoleService roleService;
 
     /**
-     * 提供账户信息返回认证信息（用户的角色信息集合）
+     * @description: 登录认证:提供帐户信息,返回认证信息(用户的角色信息集合)
+     * @param: token
+     * @date: 2019-08-13 1:33 PM
+     * @return: org.apache.shiro.authc.AuthenticationInfo
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
@@ -86,21 +89,22 @@ public class ShiroRealm extends AuthorizingRealm {
     }
 
     /**
-     * 权限认证，为当前登录的Subject授予角色和权限（角色的权限信息集合）
+     * @description: 授权认证:提供用户信息(当前登录的Subject),返回权限信息(角色的权限信息集合)
+     * @param: principalCollection
+     * @date: 2019-08-13 1:34 PM
+     * @return: org.apache.shiro.authz.AuthorizationInfo
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         // 权限信息对象info,用来存放查出的用户的所有的角色（role）及权限（permission）
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-
+        //获取用户id
         Long userId = (Long) SecurityUtils.getSubject().getPrincipal();
-
         // 赋予角色
         List<Role> roleList = roleService.listRolesByUserId(userId);
         for (Role role : roleList) {
             info.addRole(role.getName());
         }
-
         // 赋予权限
         List<Resources> resourcesList = null;
         User user = userService.getByPrimaryKey(userId);

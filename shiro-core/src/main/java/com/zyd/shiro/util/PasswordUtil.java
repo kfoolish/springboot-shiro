@@ -22,32 +22,33 @@ package com.zyd.shiro.util;
 import com.zyd.shiro.business.consts.CommonConst;
 
 /**
- * @author: yadong.zhang
+ * @project: springboot-shiro
+ * @description: 用户密码加密/解密工具
  * @date: 2017/12/15 17:03
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public class PasswordUtil {
 
     /**
-     * AES 加密
-     * @param password
-     *         未加密的密码
-     * @param salt
-     *         盐值，默认使用用户名就可
-     * @return
      * @throws Exception
+     * @description: AES 加密
+     * @param: password 未加密的用户密码
+     * @param: salt 默认使用用户名作为盐值
+     * @date: 2019-08-13 1:15 PM
+     * @return: java.lang.String
      */
     public static String encrypt(String password, String salt) throws Exception {
         return AesUtil.encrypt(Md5Util.MD5(salt + CommonConst.ZYD_SECURITY_KEY), password);
     }
 
     /**
-     * AES 解密
-     * @param encryptPassword
-     *         加密后的密码
-     * @param salt
-     *         盐值，默认使用用户名就可
-     * @return
      * @throws Exception
+     * @description: AES 解密
+     * @param: encryptPassword 加密后的用户密码
+     * @param: salt 默认使用用户名作为盐值
+     * @date: 2019-08-13 1:17 PM
+     * @return: java.lang.String
      */
     public static String decrypt(String encryptPassword, String salt) throws Exception {
         return AesUtil.decrypt(Md5Util.MD5(salt + CommonConst.ZYD_SECURITY_KEY), encryptPassword);

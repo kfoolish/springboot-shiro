@@ -36,14 +36,22 @@ import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
  */
 public class CredentialsMatcher extends SimpleCredentialsMatcher {
 
+    /**
+     * @description: 用户密码加密
+     * @param: token 用户登录信息
+     * @param: info 用户认证信息
+     * @date: 2019-08-13 1:12 PM
+     * @return: boolean
+     */
     @Override
     public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
         UsernamePasswordToken utoken = (UsernamePasswordToken) token;
         //获得用户输入的密码:(可以采用加盐(salt)的方式去检验)
         String inPassword = new String(utoken.getPassword());
-        //获得数据库中的密码
+        //根据用户的认证信息获得数据库中的密码
         String dbPassword = (String) info.getCredentials();
         try {
+            //解密数据库中的用户密码
             dbPassword = PasswordUtil.decrypt(dbPassword, utoken.getUsername());
         } catch (Exception e) {
             e.printStackTrace();

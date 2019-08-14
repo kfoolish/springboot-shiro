@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <name>shiro-core</name>
-    <description>Demo project for Spring Boot</description>
+    <description>核心业务类模块:提供基本的数据操作、工具处理等</description>
 
     <parent>
         <groupId>com.zyd.shiro</groupId>
@@ -21,11 +21,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+        <!-- web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--集成redis，client改用jedis-->
+        <!-- 集成redis,client改用jedis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
@@ -40,21 +41,23 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- Jedis -->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
         </dependency>
+        <!-- FreeMarker -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
-        <!--springboot 集成Mybatis所需jar配置 start -->
-        <!--支持使用 JDBC 访问数据库 -->
+        <!-- SpringBoot集成Mybatis所需jar配置Start -->
+        <!-- 支持使用JDBC访问数据库 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
-        <!--mybatis-->
+        <!-- MyBatis -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -66,7 +69,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--mapper-->
+        <!-- Mapper -->
         <dependency>
             <groupId>tk.mybatis</groupId>
             <artifactId>mapper-spring-boot-starter</artifactId>
@@ -78,35 +81,38 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--pagehelper-->
+        <!-- PageHelper -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>${pagehelper.version}</version>
         </dependency>
-        <!--mysql-->
+        <!-- MySQL -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!--springboot 集成Mybatis所需jar配置 end -->
+        <!-- SpringBoot集成Mybatis所需jar配置 end -->
+        <!-- Json -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
-        <!--druid依赖添加-->
+        <!-- Druid -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>${druid.version}</version>
         </dependency>
+        <!-- Shiro-spring -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
             <version>${shiro.spring.version}</version>
         </dependency>
+        <!-- Shiro-redis -->
         <dependency>
             <groupId>org.crazycake</groupId>
             <artifactId>shiro-redis</artifactId>
@@ -118,6 +124,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- Shiro-tags -->
         <dependency>
             <groupId>net.mingsoft</groupId>
             <artifactId>shiro-freemarker-tags</artifactId>

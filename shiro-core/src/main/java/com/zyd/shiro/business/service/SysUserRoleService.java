@@ -24,28 +24,28 @@ import com.zyd.shiro.business.entity.UserRole;
 import com.zyd.shiro.framework.object.AbstractService;
 
 /**
- * 用户角色
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 用户角色相关的业务处理
+ * @date: 2019-08-14 4:10 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public interface SysUserRoleService extends AbstractService<UserRole, Long> {
 
     /**
-     * 添加用户角色
-     *
-     * @param userId
-     * @param roleIds
+     * @description: 添加用户角色
+     * @param: userId
+     * @param: roleIds
+     * @date: 2019-08-14 4:10 PM
+     * @return: void
      */
     void addUserRole(Long userId, String roleIds);
 
     /**
-     * 根据用户ID删除用户角色
-     *
-     * @param userId
+     * @description: 根据用户id删除用户角色
+     * @param: userId
+     * @date: 2019-08-14 4:10 PM
+     * @return: void
      */
     void removeByUserId(Long userId);
 }

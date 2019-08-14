@@ -29,37 +29,35 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 角色
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 角色相关的业务处理
+ * @date: 2019-08-14 4:01 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public interface SysRoleService extends AbstractService<Role, Long> {
 
     /**
-     * 获取ztree使用的角色列表
-     *
-     * @param uid
-     * @return
+     * @description: 通过用户id获取ztree使用的角色列表
+     * @param: uid
+     * @date: 2019-08-14 4:02 PM
+     * @return: java.util.List<java.util.Map < java.lang.String, java.lang.Object>>
      */
     List<Map<String, Object>> queryRoleListWithSelected(Integer uid);
 
     /**
-     * 分页查询
-     *
-     * @param vo
-     * @return
+     * @description: 分页查询角色列表
+     * @param: vo
+     * @date: 2019-08-14 4:02 PM
+     * @return: com.github.pagehelper.PageInfo<com.zyd.shiro.business.entity.Role>
      */
     PageInfo<Role> findPageBreakByCondition(RoleConditionVO vo);
 
     /**
-     * 获取用户的角色
-     *
-     * @param userId
-     * @return
+     * @description: 通过用户id获取用户所拥有的角色信息
+     * @param: userId
+     * @date: 2019-08-14 4:03 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Role>
      */
     List<Role> listRolesByUserId(Long userId);
 }

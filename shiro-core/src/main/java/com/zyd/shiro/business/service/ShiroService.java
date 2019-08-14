@@ -24,37 +24,43 @@ import com.zyd.shiro.business.entity.User;
 import java.util.Map;
 
 /**
- * Shiro-权限相关的业务处理
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/25 14:37
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: Shiro-权限相关的业务处理
+ * @date: 2019-08-14 3:57 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public interface ShiroService {
 
     /**
-     * 初始化权限
+     * @description: 初始化权限
+     * @param:
+     * @date: 2019-08-14 3:53 PM
+     * @return: java.util.Map<java.lang.String, java.lang.String>
      */
     Map<String, String> loadFilterChainDefinitions();
 
     /**
-     * 重新加载权限
+     * @description: 重新加载权限
+     * @param:
+     * @date: 2019-08-14 3:53 PM
+     * @return: void
      */
     void updatePermission();
 
     /**
-     * 重新加载用户权限
-     *
-     * @param user
+     * @description: 重新加载用户权限
+     * @param: user
+     * @date: 2019-08-14 3:54 PM
+     * @return: void
      */
     void reloadAuthorizingByUserId(User user);
 
     /**
-     * 重新加载所有拥有roleId角色的用户的权限
-     *
-     * @param roleId
+     * @description: 重新加载所有拥有roleId角色的用户的权限
+     * @param: roleId
+     * @date: 2019-08-14 3:54 PM
+     * @return: void
      */
     void reloadAuthorizingByRoleId(Long roleId);
 

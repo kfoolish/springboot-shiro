@@ -28,45 +28,43 @@ import com.zyd.shiro.framework.object.AbstractService;
 import java.util.List;
 
 /**
- * 用户
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 用户相关的业务处理
+ * @date: 2019-08-14 3:57 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public interface SysUserService extends AbstractService<User, Long> {
 
     /**
-     * 分页查询
-     *
-     * @param vo
-     * @return
+     * @description: 分页查询用户信息
+     * @param: vo
+     * @date: 2019-08-14 3:58 PM
+     * @return: com.github.pagehelper.PageInfo<com.zyd.shiro.business.entity.User>
      */
     PageInfo<User> findPageBreakByCondition(UserConditionVO vo);
 
     /**
-     * 更新用户最后一次登录的状态信息
-     *
-     * @param user
-     * @return
+     * @description: (never used)更新用户最后一次登录的状态信息
+     * @param: user
+     * @date: 2019-08-14 3:59 PM
+     * @return: com.zyd.shiro.business.entity.User
      */
     User updateUserLastLoginInfo(User user);
 
     /**
-     * 根据用户名查找
-     *
-     * @param userName
-     * @return
+     * @description: 根据用户名查找指定的用户信息
+     * @param: userName
+     * @date: 2019-08-14 4:00 PM
+     * @return: com.zyd.shiro.business.entity.User
      */
     User getByUserName(String userName);
 
     /**
-     * 通过角色Id获取用户列表
-     *
-     * @param roleId
-     * @return
+     * @description: 通过角色id获取用户列表
+     * @param: roleId
+     * @date: 2019-08-14 4:00 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.User>
      */
     List<User> listByRoleId(Long roleId);
 

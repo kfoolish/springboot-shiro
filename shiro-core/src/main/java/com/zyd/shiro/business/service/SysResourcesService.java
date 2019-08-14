@@ -28,66 +28,67 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 系统资源
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 系统资源相关的业务处理
+ * @date: 2019-08-14 4:05 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public interface SysResourcesService extends AbstractService<Resources, Long> {
 
     /**
-     * 分页查询
-     *
-     * @param vo
-     * @return
+     * @description: 分页查询资源列表
+     * @param: vo
+     * @date: 2019-08-14 4:05 PM
+     * @return: com.github.pagehelper.PageInfo<com.zyd.shiro.business.entity.Resources>
      */
     PageInfo<Resources> findPageBreakByCondition(ResourceConditionVO vo);
 
     /**
-     * 获取用户的资源列表
-     *
-     * @param map
-     * @return
+     * @description: 获取用户所拥有的资源列表
+     * @param: map
+     * @date: 2019-08-14 4:06 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Resources>
      */
     List<Resources> listUserResources(Map<String, Object> map);
 
     /**
-     * 获取ztree使用的资源列表
-     *
-     * @param rid
-     * @return
+     * @description: 通过角色id获取ztree使用的资源列表
+     * @param: rid
+     * @date: 2019-08-14 4:06 PM
+     * @return: java.util.List<java.util.Map < java.lang.String, java.lang.Object>>
      */
     List<Map<String, Object>> queryResourcesListWithSelected(Long rid);
 
     /**
-     * 获取资源的url和permission
-     *
-     * @return
+     * @description: 获取资源的url和Permission
+     * @param:
+     * @date: 2019-08-14 4:07 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Resources>
      */
     List<Resources> listUrlAndPermission();
 
     /**
-     * 获取所有可用的菜单资源
-     *
-     * @return
+     * @description: 获取所有可用的菜单资源
+     * @param:
+     * @date: 2019-08-14 4:07 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Resources>
      */
     List<Resources> listAllAvailableMenu();
 
     /**
-     * 获取父级资源下所有menu资源
-     *
-     * @return
+     * @description: (never used)获取父级资源下所有menu资源
+     * @param: pid
+     * @date: 2019-08-14 4:08 PM
+     * @return: java.util.List<java.util.Map < java.lang.String, java.lang.Object>>
      */
     List<Map<String, Object>> listChildMenuByPid(Long pid);
 
     /**
-     * 获取用户关联的所有资源
-     *
-     * @param userId
-     * @return
+     * @description: 通过用户id获取用户关联的所有资源
+     * @param: userId
+     * @date: 2019-08-14 4:08 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Resources>
      */
     List<Resources> listByUserId(Long userId);
 }

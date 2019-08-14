@@ -28,39 +28,68 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @website https://www.zhyd.me
- * @version 1.0
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 操控系统资源信息
+ * @date: 2019-08-14 3:06 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Repository
 public interface SysResourceMapper extends BaseMapper<SysResources> {
 
     /**
-     * 分页查询
-     *
-     * @param vo
-     * @return
+     * @description: 分页查询系统资源
+     * @param: vo
+     * @date: 2019-08-14 3:08 PM
+     * @return: java.util.List<com.zyd.shiro.persistence.beans.SysResources>
      */
     List<SysResources> findPageBreakByCondition(ResourceConditionVO vo);
 
+    /**
+     * @description: 获取用户的资源列表
+     * @param: map
+     * @date: 2019-08-14 3:10 PM
+     * @return: java.util.List<com.zyd.shiro.persistence.beans.SysResources>
+     */
     List<SysResources> listUserResources(Map<String, Object> map);
 
     /**
-     * 该节代码参考自http://blog.csdn.net/poorcoder_/article/details/71374002
-     * 感谢网友
-     *
-     * @param rid
-     * @return
+     * @description: 根据角色id获取ztree使用的资源列表, 代码参考自 http://blog.csdn.net/poorcoder_/article/details/71374002
+     * @param: rid
+     * @date: 2019-08-14 3:12 PM
+     * @return: java.util.List<com.zyd.shiro.persistence.beans.SysResources>
      */
     List<SysResources> queryResourcesListWithSelected(Long rid);
 
+    /**
+     * @description: 获取资源的url和Permission
+     * @param:
+     * @date: 2019-08-14 3:13 PM
+     * @return: java.util.List<com.zyd.shiro.persistence.beans.SysResources>
+     */
     List<SysResources> listUrlAndPermission();
 
+    /**
+     * @description: 获取所有可用的菜单资源
+     * @param:
+     * @date: 2019-08-14 3:15 PM
+     * @return: java.util.List<com.zyd.shiro.persistence.beans.SysResources>
+     */
     List<SysResources> listAllAvailableMenu();
 
+    /**
+     * @description: 通过父级菜单id获取父级资源下所有menu资源
+     * @param: pid
+     * @date: 2019-08-14 3:16 PM
+     * @return: java.util.List<com.zyd.shiro.persistence.beans.SysResources>
+     */
     List<SysResources> listMenuResourceByPid(Long pid);
 
+    /**
+     * @description: 通过用户id获取用户关联的所有资源
+     * @param: userId
+     * @date: 2019-08-14 3:18 PM
+     * @return: java.util.List<com.zyd.shiro.persistence.beans.SysResources>
+     */
     List<SysResources> listByUserId(Long userId);
 }

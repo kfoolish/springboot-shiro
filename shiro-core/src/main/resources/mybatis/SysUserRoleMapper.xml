@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+Description : 用户与角色信息间的桥梁
+-->
 <mapper namespace="com.zyd.shiro.persistence.mapper.SysUserRoleMapper">
+    <!-- 定义存储角色信息的Map集合 -->
     <resultMap id="rm" type="com.zyd.shiro.persistence.beans.SysUserRole">
         <result property="id" jdbcType="BIGINT" column="id"/>
         <result property="userId" jdbcType="BIGINT" column="user_id"/>
@@ -8,13 +12,10 @@
         <result property="createTime" jdbcType="TIMESTAMP" column="create_time"/>
         <result property="updateTime" jdbcType="TIMESTAMP" column="update_time"/>
     </resultMap>
-
+    <!-- 通过角色id查询指定的用户信息 -->
     <select id="findUserIdByRoleId" parameterType="Integer" resultType="Integer">
-        SELECT
-            user_id
-        FROM
-            sys_user_role
-        WHERE
-            role_id = #{roleId}
+        SELECT user_id
+        FROM sys_user_role
+        WHERE role_id = #{roleId}
     </select>
 </mapper>

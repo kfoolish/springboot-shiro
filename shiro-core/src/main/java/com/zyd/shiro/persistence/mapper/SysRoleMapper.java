@@ -27,31 +27,36 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @website https://www.zhyd.me
- * @version 1.0
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 操控系统角色信息
+ * @date: 2019-08-14 2:48 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Repository
 public interface SysRoleMapper extends BaseMapper<SysRole> {
 
     /**
-     * 分页查询
-     *
-     * @param vo
-     * @return
+     * @description: 分页查询角色信息
+     * @param: vo
+     * @date: 2019-08-14 2:49 PM
+     * @return: java.util.List<com.zyd.shiro.persistence.beans.SysRole>
      */
     List<SysRole> findPageBreakByCondition(RoleConditionVO vo);
 
     /**
-     * 该节代码参考自http://blog.csdn.net/poorcoder_/article/details/71374002
-     * 感谢网友
-     *
-     * @param userId
-     * @return
+     * @description: 通过用户id获取ztree使用的角色列表, 代码参考自 http://blog.csdn.net/poorcoder_/article/details/71374002
+     * @param: userId
+     * @date: 2019-08-14 2:50 PM
+     * @return: java.util.List<com.zyd.shiro.persistence.beans.SysRole>
      */
     List<SysRole> queryRoleListWithSelected(Integer userId);
 
+    /**
+     * @description: 通过用户id获取用户所拥有的角色信息
+     * @param: userId
+     * @date: 2019-08-14 2:51 PM
+     * @return: java.util.List<com.zyd.shiro.persistence.beans.SysRole>
+     */
     List<SysRole> listRolesByUserId(Long userId);
 }

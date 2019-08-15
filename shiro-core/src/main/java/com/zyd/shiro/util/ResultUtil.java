@@ -31,13 +31,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 接口返回工具类，支持ModelAndView、ResponseVO、PageResult
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/18 11:48
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 接口返回工具类:支持ModelAndView、ResponseVO、PageResult
+ * @date: 2019-08-15 10:59 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public class ResultUtil {
 
@@ -45,6 +43,7 @@ public class ResultUtil {
         return new ModelAndView(view);
     }
 
+    //the method is not used
     public static ModelAndView view(String view, Map<String, Object> model) {
         return new ModelAndView(view, model);
     }

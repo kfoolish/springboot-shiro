@@ -24,21 +24,19 @@ import org.springframework.util.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 获取IP的工具类
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/18 11:48
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 获取IP的工具类
+ * @date: 2019-08-15 10:55 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public class IpUtil {
 
     /**
-     * 获取真实IP
-     *
-     * @param request
-     * @return
+     * @description: 获取真实的IP地址
+     * @param: request
+     * @date: 2019-08-15 10:52 AM
+     * @return: java.lang.String
      */
     public static String getRealIp(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
@@ -49,10 +47,10 @@ public class IpUtil {
     }
 
     /**
-     * 校验IP
-     *
-     * @param ip
-     * @return
+     * @description: 校验IP地址
+     * @param: ip
+     * @date: 2019-08-15 10:53 AM
+     * @return: boolean
      */
     private static boolean checkIp(String ip) {
         return !StringUtils.isEmpty(ip) && !"unknown".equalsIgnoreCase(ip);

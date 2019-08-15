@@ -24,33 +24,31 @@ import lombok.extern.slf4j.Slf4j;
 import java.security.MessageDigest;
 
 /**
- * MD5加密工具类
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/18 11:48
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: MD5加密工具类
+ * @date: 2019-08-15 10:55 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Slf4j
 public class Md5Util {
 
     /**
-     * 通过盐值对字符串进行MD5加密
-     *
-     * @param param 需要加密的字符串
-     * @param salt  盐值
-     * @return
+     * @description: (never used)通过盐值对字符串进行MD5加密
+     * @param: param 需要加密的字符串
+     * @param: salt 盐值
+     * @date: 2019-08-15 10:56 AM
+     * @return: java.lang.String
      */
     public static String MD5(String param, String salt) {
         return MD5(param + salt);
     }
 
     /**
-     * 加密字符串
-     *
-     * @param s 字符串
-     * @return
+     * @description: 加密字符串
+     * @param: s
+     * @date: 2019-08-15 10:57 AM
+     * @return: java.lang.String
      */
     public static String MD5(String s) {
         char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};

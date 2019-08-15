@@ -26,66 +26,79 @@ import com.zyd.shiro.framework.holder.RequestHolder;
 import java.util.UUID;
 
 /**
- * Session工具类
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/18 11:48
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: Session工具类
+ * @date: 2019-08-15 11:04 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public class SessionUtil {
 
     /**
-     * 获取session中的用户信息
-     *
-     * @return User
+     * @description: 获取session中的用户信息
+     * @param:
+     * @date: 2019-08-15 11:04 AM
+     * @return: com.zyd.shiro.business.entity.User
      */
     public static User getUser() {
         return (User) RequestHolder.getSession(SessionConst.USER_SESSION_KEY);
     }
 
     /**
-     * 添加session
-     *
-     * @param user
+     * @description: 将用户信息添加到session
+     * @param: user
+     * @date: 2019-08-15 11:05 AM
+     * @return: void
      */
     public static void setUser(User user) {
         RequestHolder.setSession(SessionConst.USER_SESSION_KEY, user);
     }
 
     /**
-     * 删除session信息
+     * @description: 删除session中的用户信息
+     * @param:
+     * @date: 2019-08-15 11:05 AM
+     * @return: void
      */
     public static void removeUser() {
         RequestHolder.removeSession(SessionConst.USER_SESSION_KEY);
     }
 
     /**
-     * 获取session中的Token信息
-     *
-     * @return String
+     * @description: 获取session中的Token信息
+     * @param: key
+     * @date: 2019-08-15 11:09 AM
+     * @return: java.lang.String
      */
     public static String getToken(String key) {
         return (String) RequestHolder.getSession(key);
     }
 
     /**
-     * 添加Token
+     * @description: 将Token信息添加到session
+     * @param: key
+     * @date: 2019-08-15 11:09 AM
+     * @return: void
      */
     public static void setToken(String key) {
         RequestHolder.setSession(key, UUID.randomUUID().toString());
     }
 
     /**
-     * 删除Token信息
+     * @description: 删除session中的Token信息
+     * @param: key
+     * @date: 2019-08-15 11:10 AM
+     * @return: void
      */
     public static void removeToken(String key) {
         RequestHolder.removeSession(key);
     }
 
     /**
-     * 删除所有的session信息
+     * @description: 删除所有的session信息
+     * @param:
+     * @date: 2019-08-15 11:11 AM
+     * @return: void
      */
     public static void removeAllSession() {
         String[] keys = RequestHolder.getSessionKeys();

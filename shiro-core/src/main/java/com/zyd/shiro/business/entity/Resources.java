@@ -26,11 +26,11 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @website https://www.zhyd.me
- * @version 1.0
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 资源信息
+ * @date: 2019-08-15 9:36 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public class Resources {
     private SysResources sysResources;
@@ -161,4 +161,3 @@ public class Resources {
         this.sysResources.setNodes(nodes);
     }
 }
-

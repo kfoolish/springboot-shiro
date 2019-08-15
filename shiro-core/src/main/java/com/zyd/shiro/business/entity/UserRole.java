@@ -24,11 +24,11 @@ import com.zyd.shiro.persistence.beans.SysUserRole;
 import java.util.Date;
 
 /**
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @website https://www.zhyd.me
- * @version 1.0
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 连接用户与角色信息的桥梁
+ * @date: 2019-08-15 9:40 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public class UserRole {
 

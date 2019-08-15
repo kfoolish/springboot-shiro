@@ -19,7 +19,6 @@
  */
 package com.zyd.shiro.controller;
 
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.zyd.shiro.business.entity.Resources;
 import com.zyd.shiro.business.enums.ResponseStatus;
@@ -38,13 +37,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 系统资源管理
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/24 14:37
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 系统资源管理模块的控制器
+ * @date: 2019-08-15 6:51 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @RestController
 @RequestMapping("/resources")
@@ -55,6 +52,12 @@ public class RestResourcesController {
     @Autowired
     private ShiroService shiroService;
 
+    /**
+     * @description: 分页显示系统资源信息
+     * @param: vo
+     * @date: 2019-08-15 7:11 PM
+     * @return: com.zyd.shiro.framework.object.PageResult
+     */
     @RequiresPermissions("resources")
     @PostMapping("/list")
     public PageResult getAll(ResourceConditionVO vo) {
@@ -62,12 +65,24 @@ public class RestResourcesController {
         return ResultUtil.tablePage(pageInfo);
     }
 
+    /**
+     * @description: 获取所选择系统资源信息
+     * @param: rid
+     * @date: 2019-08-15 7:12 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions("role:allotResource")
     @PostMapping("/resourcesWithSelected")
     public ResponseVO resourcesWithSelected(Long rid) {
         return ResultUtil.success(null, resourcesService.queryResourcesListWithSelected(rid));
     }
 
+    /**
+     * @description: 添加新系统资源信息
+     * @param: resources
+     * @date: 2019-08-15 7:12 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions("resource:add")
     @PostMapping(value = "/add")
     public ResponseVO add(Resources resources) {
@@ -77,6 +92,12 @@ public class RestResourcesController {
         return ResultUtil.success("成功");
     }
 
+    /**
+     * @description: 删除系统资源信息
+     * @param: ids 以","分隔的资源id字符串
+     * @date: 2019-08-15 7:13 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions(value = {"resource:batchDelete", "resource:delete"}, logical = Logical.OR)
     @PostMapping(value = "/remove")
     public ResponseVO remove(Long[] ids) {
@@ -86,18 +107,29 @@ public class RestResourcesController {
         for (Long id : ids) {
             resourcesService.removeByPrimaryKey(id);
         }
-
         //更新权限
         shiroService.updatePermission();
         return ResultUtil.success("成功删除 [" + ids.length + "] 个资源");
     }
 
+    /**
+     * @description: 获取指定的系统资源信息
+     * @param: id
+     * @date: 2019-08-15 7:14 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions("resource:edit")
     @PostMapping("/get/{id}")
     public ResponseVO get(@PathVariable Long id) {
         return ResultUtil.success(null, this.resourcesService.getByPrimaryKey(id));
     }
 
+    /**
+     * @description: 更新系统资源信息
+     * @param: resources
+     * @date: 2019-08-15 7:15 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions("resource:edit")
     @PostMapping("/edit")
     public ResponseVO edit(Resources resources) {

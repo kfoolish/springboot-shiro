@@ -39,18 +39,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 /**
- * 重写BasicErrorController,主要负责系统的异常页面的处理以及错误信息的显示
- * <p/>
- * 此处指需要记录
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * <p/>
- * 要注意，这个类里面的代码一定不能有异常或者潜在异常发生，否则可能会让程序陷入死循环。
- * <p/>
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 重写BasicErrorController, 主要负责系统的异常页面的处理以及错误信息的显示
+ * 注意: 这个类里面的代码一定不能有异常或者潜在异常发生,否则可能会让程序陷入死循环
+ * @date: 2019-08-15 7:42 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Slf4j
 @Controller
@@ -64,9 +58,10 @@ public class ErrorPagesController implements ErrorController {
     private ServerProperties serverProperties;
 
     /**
-     * 初始化ExceptionController
-     *
-     * @param errorAttributes
+     * @description: 初始化ExceptionController
+     * @param: errorAttributes
+     * @date: 2019-08-15 8:10 PM
+     * @return:
      */
     @Autowired
     public ErrorPagesController(ErrorAttributes errorAttributes) {
@@ -74,6 +69,14 @@ public class ErrorPagesController implements ErrorController {
         this.errorAttributes = errorAttributes;
     }
 
+    /**
+     * @description: 404:指网页或文件未找到错误
+     * @param: request
+     * @param: response
+     * @param: webRequest
+     * @date: 2019-08-15 8:10 PM
+     * @return: org.springframework.web.servlet.ModelAndView
+     */
     @RequestMapping("/404")
     public ModelAndView errorHtml404(HttpServletRequest request, HttpServletResponse response, WebRequest webRequest) {
         response.setStatus(HttpStatus.NOT_FOUND.value());
@@ -82,10 +85,18 @@ public class ErrorPagesController implements ErrorController {
         return new ModelAndView("error/404", model);
     }
 
+    /**
+     * @description: 403:资源不可用错误
+     * @param: request
+     * @param: response
+     * @param: webRequest
+     * @date: 2019-08-15 8:11 PM
+     * @return: org.springframework.web.servlet.ModelAndView
+     */
     @RequestMapping("/403")
     public ModelAndView errorHtml403(HttpServletRequest request, HttpServletResponse response, WebRequest webRequest) {
         response.setStatus(HttpStatus.FORBIDDEN.value());
-        // 404拦截规则，如果是静态文件发生的404则不记录到DB
+        // 404拦截规则,如果是静态文件发生的404则不记录到DB
         Map<String, Object> model = getErrorAttributes(webRequest, isIncludeStackTrace(request, MediaType.TEXT_HTML));
         if (!String.valueOf(model.get("path")).contains(".")) {
             model.put("status", HttpStatus.FORBIDDEN.value());
@@ -93,6 +104,14 @@ public class ErrorPagesController implements ErrorController {
         return new ModelAndView("error/403", model);
     }
 
+    /**
+     * @description: 400:访问的页面域名不存在或者请求错误
+     * @param: request
+     * @param: response
+     * @param: webRequest
+     * @date: 2019-08-15 8:11 PM
+     * @return: org.springframework.web.servlet.ModelAndView
+     */
     @RequestMapping("/400")
     public ModelAndView errorHtml400(HttpServletRequest request, HttpServletResponse response, WebRequest webRequest) {
         response.setStatus(HttpStatus.BAD_REQUEST.value());
@@ -100,6 +119,14 @@ public class ErrorPagesController implements ErrorController {
         return new ModelAndView("error/400", model);
     }
 
+    /**
+     * @description: 401:未经授权错误
+     * @param: request
+     * @param: response
+     * @param: webRequest
+     * @date: 2019-08-15 8:12 PM
+     * @return: org.springframework.web.servlet.ModelAndView
+     */
     @RequestMapping("/401")
     public ModelAndView errorHtml401(HttpServletRequest request, HttpServletResponse response, WebRequest webRequest) {
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
@@ -107,6 +134,14 @@ public class ErrorPagesController implements ErrorController {
         return new ModelAndView("error/401", model);
     }
 
+    /**
+     * @description: 500:服务器端发生异常
+     * @param: request
+     * @param: response
+     * @param: webRequest
+     * @date: 2019-08-15 8:12 PM
+     * @return: org.springframework.web.servlet.ModelAndView
+     */
     @RequestMapping("/500")
     public ModelAndView errorHtml500(HttpServletRequest request, HttpServletResponse response, WebRequest webRequest) {
         response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
@@ -121,8 +156,7 @@ public class ErrorPagesController implements ErrorController {
      * @param produces the media type produced (or {@code MediaType.ALL})
      * @return if the stacktrace attribute should be included
      */
-    protected boolean isIncludeStackTrace(HttpServletRequest request,
-                                          MediaType produces) {
+    protected boolean isIncludeStackTrace(HttpServletRequest request, MediaType produces) {
         ErrorProperties.IncludeStacktrace include = this.serverProperties.getError().getIncludeStacktrace();
         if (include == ErrorProperties.IncludeStacktrace.ALWAYS) {
             return true;
@@ -132,22 +166,21 @@ public class ErrorPagesController implements ErrorController {
 
 
     /**
-     * 获取错误的信息
-     *
-     * @param webRequest
-     * @param includeStackTrace
-     * @return
+     * @description: 获取错误信息
+     * @param: webRequest
+     * @param: includeStackTrace
+     * @date: 2019-08-15 8:13 PM
+     * @return: java.util.Map<java.lang.String, java.lang.Object>
      */
-    private Map<String, Object> getErrorAttributes(WebRequest webRequest,
-                                                   boolean includeStackTrace) {
+    private Map<String, Object> getErrorAttributes(WebRequest webRequest, boolean includeStackTrace) {
         return this.errorAttributes.getErrorAttributes(webRequest, includeStackTrace);
     }
 
     /**
-     * 是否包含trace
-     *
-     * @param request
-     * @return
+     * @description: 判断是否包含trace
+     * @param: request
+     * @date: 2019-08-15 8:13 PM
+     * @return: boolean
      */
     private boolean getTraceParameter(HttpServletRequest request) {
         String parameter = request.getParameter("trace");
@@ -155,10 +188,10 @@ public class ErrorPagesController implements ErrorController {
     }
 
     /**
-     * 获取错误编码
-     *
-     * @param request
-     * @return
+     * @description: (never used)获取错误编码
+     * @param: request
+     * @date: 2019-08-15 8:14 PM
+     * @return: org.springframework.http.HttpStatus
      */
     private HttpStatus getStatus(HttpServletRequest request) {
         Integer statusCode = (Integer) request
@@ -175,9 +208,10 @@ public class ErrorPagesController implements ErrorController {
     }
 
     /**
-     * 实现错误路径,暂时无用
-     *
-     * @return
+     * @description: 实现错误路径, 暂时无用
+     * @param:
+     * @date: 2019-08-15 8:14 PM
+     * @return: java.lang.String
      */
     @Override
     public String getErrorPath() {

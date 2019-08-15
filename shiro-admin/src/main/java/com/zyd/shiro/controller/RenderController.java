@@ -19,16 +19,6 @@
  */
 package com.zyd.shiro.controller;
 
-/**
- * 页面渲染相关 -- 页面跳转
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/24 14:37
- * @since 1.0
- */
-
 import com.zyd.shiro.util.ResultUtil;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -37,13 +27,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * 页面跳转类
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/24 14:37
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 控制页面的渲染与跳转
+ * @date: 2019-08-15 7:21 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Controller
 public class RenderController {

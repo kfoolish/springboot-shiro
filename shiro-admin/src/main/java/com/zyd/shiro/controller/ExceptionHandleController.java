@@ -32,14 +32,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.lang.reflect.UndeclaredThrowableException;
 
 /**
- * 统一异常处理类<br>
- * 捕获程序所有异常，针对不同异常，采取不同的处理方式
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/24 14:37
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 统一异常处理类:捕获程序所有异常,针对不同异常,采取不同的处理方式
+ * @date: 2019-08-15 7:38 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Slf4j
 @ControllerAdvice
@@ -59,7 +56,7 @@ public class ExceptionHandleController {
             log.error(responseStatus.getMessage());
             return ResultUtil.error(responseStatus.getCode(), responseStatus.getMessage());
         }
-        e.printStackTrace(); // 打印异常栈
+        e.printStackTrace(); //打印异常栈
         return ResultUtil.error(CommonConst.DEFAULT_ERROR_CODE, ResponseStatus.ERROR.getMessage());
     }
 

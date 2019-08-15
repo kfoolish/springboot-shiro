@@ -35,33 +35,39 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
- * 登录相关
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/24 14:37
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 登录模块的控制器
+ * @date: 2019-08-15 7:25 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Slf4j
 @Controller
 @RequestMapping(value = "/passport")
 public class PassportController {
 
-    @GetMapping("/login")
+    /**
+     * @description: 跳转到用户登录页
+     * @param: model
+     * @date: 2019-08-15 7:26 PM
+     * @return: org.springframework.web.servlet.ModelAndView
+     */
+    @GetMapping("/login")//the parameter is never used
     public ModelAndView login(Model model) {
         return ResultUtil.view("/login");
     }
 
     /**
-     * 登录
-     *
-     * @param username
-     * @param password
-     * @return
+     * @description: 验证用户登录信息
+     * @param: username
+     * @param: password
+     * @param: rememberMe
+     * @param: kaptcha
+     * @date: 2019-08-15 7:26 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
      */
     @PostMapping("/signin")
-    @ResponseBody
+    @ResponseBody//the parameter of 'kaptcha' is never used
     public ResponseVO submitLogin(String username, String password, boolean rememberMe, String kaptcha) {
         UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberMe);
         //获取当前的Subject
@@ -80,17 +86,16 @@ public class PassportController {
     }
 
     /**
-     * 使用权限管理工具进行用户的退出，跳出登录，给出提示信息
-     *
-     * @param redirectAttributes
-     * @return
+     * @description: 使用权限管理工具完成用户的退出, 跳出登录, 给出提示信息
+     * @param: redirectAttributes
+     * @date: 2019-08-15 7:30 PM
+     * @return: org.springframework.web.servlet.ModelAndView
      */
     @GetMapping("/logout")
     public ModelAndView logout(RedirectAttributes redirectAttributes) {
-        // http://www.oschina.net/question/99751_91561
-        // 此处有坑： 退出登录，其实不用实现任何东西，只需要保留这个接口即可，也不可能通过下方的代码进行退出
+        // 问题: http://www.oschina.net/question/99751_91561
+        // 解答: 退出登录代码其实不用实现,只需要保留这个接口即可,因为注销功能是由Shiro默认实现的,既而以下用于注销的代码可省略哟
         // SecurityUtils.getSubject().logout();
-        // 因为退出操作是由Shiro控制的
         redirectAttributes.addFlashAttribute("message", "您已安全退出");
         return ResultUtil.redirect("index");
     }

@@ -39,22 +39,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 用户管理
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/24 14:37
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 用户管理模块的控制器
+ * @date: 2019-08-15 6:36 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @RestController
 @RequestMapping("/user")
 public class RestUserController {
+
     @Autowired
     private SysUserService userService;
     @Autowired
     private SysUserRoleService userRoleService;
 
+    /**
+     * @description: 分页显示用户信息
+     * @param: vo
+     * @date: 2019-08-15 6:37 PM
+     * @return: com.zyd.shiro.framework.object.PageResult
+     */
     @RequiresPermissions("users")
     @PostMapping("/list")
     public PageResult list(UserConditionVO vo) {
@@ -63,13 +68,11 @@ public class RestUserController {
     }
 
     /**
-     * 保存用户角色
-     *
-     * @param userId
-     * @param roleIds
-     *         用户角色
-     *         此处获取的参数的角色id是以 “,” 分隔的字符串
-     * @return
+     * @description: 更新用户角色信息
+     * @param: userId
+     * @param: roleIds 以","分隔的角色id字符串
+     * @date: 2019-08-15 6:38 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
      */
     @RequiresPermissions("user:allotRole")
     @PostMapping("/saveUserRoles")
@@ -81,6 +84,12 @@ public class RestUserController {
         return ResultUtil.success("成功");
     }
 
+    /**
+     * @description: 添加新用户
+     * @param: user
+     * @date: 2019-08-15 6:40 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions("user:add")
     @PostMapping(value = "/add")
     public ResponseVO add(User user) {
@@ -98,6 +107,12 @@ public class RestUserController {
         }
     }
 
+    /**
+     * @description: 删除用户信息
+     * @param: ids 以","分隔的用户id字符串
+     * @date: 2019-08-15 6:43 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions(value = {"user:batchDelete", "user:delete"}, logical = Logical.OR)
     @PostMapping(value = "/remove")
     public ResponseVO remove(Long[] ids) {
@@ -111,12 +126,24 @@ public class RestUserController {
         return ResultUtil.success("成功删除 [" + ids.length + "] 个用户");
     }
 
+    /**
+     * @description: 获取指定的用户信息
+     * @param: id
+     * @date: 2019-08-15 6:45 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions("user:edit")
     @PostMapping("/get/{id}")
     public ResponseVO get(@PathVariable Long id) {
         return ResultUtil.success(null, this.userService.getByPrimaryKey(id));
     }
 
+    /**
+     * @description: 更新用户信息
+     * @param: user
+     * @date: 2019-08-15 6:47 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions("user:edit")
     @PostMapping("/edit")
     public ResponseVO edit(User user) {

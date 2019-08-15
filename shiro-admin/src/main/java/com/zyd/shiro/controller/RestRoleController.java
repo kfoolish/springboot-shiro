@@ -41,17 +41,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * 系统角色管理
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/24 14:37
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 系统角色管理模块的控制器
+ * @date: 2019-08-15 6:51 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @RestController
 @RequestMapping("/roles")
 public class RestRoleController {
+
     @Autowired
     private SysRoleService roleService;
     @Autowired
@@ -59,6 +58,12 @@ public class RestRoleController {
     @Autowired
     private ShiroService shiroService;
 
+    /**
+     * @description: 分页显示系统角色信息
+     * @param: vo
+     * @date: 2019-08-15 6:51 PM
+     * @return: com.zyd.shiro.framework.object.PageResult
+     */
     @RequiresPermissions("roles")
     @PostMapping("/list")
     public PageResult getAll(RoleConditionVO vo) {
@@ -66,12 +71,25 @@ public class RestRoleController {
         return ResultUtil.tablePage(pageInfo);
     }
 
+    /**
+     * @description: 显示所选择的系统角色信息
+     * @param: uid
+     * @date: 2019-08-15 6:52 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO<java.util.List < com.zyd.shiro.business.entity.Role>>
+     */
     @RequiresPermissions("user:allotRole")
     @PostMapping("/rolesWithSelected")
     public ResponseVO<List<Role>> rolesWithSelected(Integer uid) {
         return ResultUtil.success(null, roleService.queryRoleListWithSelected(uid));
     }
 
+    /**
+     * @description: 更新指定角色所拥有的资源信息
+     * @param: roleId
+     * @param: resourcesId
+     * @date: 2019-08-15 6:53 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions("role:allotResource")
     @PostMapping("/saveRoleResources")
     public ResponseVO saveRoleResources(Long roleId, String resourcesId) {
@@ -84,6 +102,12 @@ public class RestRoleController {
         return ResultUtil.success("成功");
     }
 
+    /**
+     * @description: 添加新系统角色信息
+     * @param: role
+     * @date: 2019-08-15 6:54 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions("role:add")
     @PostMapping(value = "/add")
     public ResponseVO add(Role role) {
@@ -91,6 +115,12 @@ public class RestRoleController {
         return ResultUtil.success("成功");
     }
 
+    /**
+     * @description: 删除系统角色信息
+     * @param: ids 以","分隔的角色id字符串
+     * @date: 2019-08-15 6:55 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions(value = {"role:batchDelete", "role:delete"}, logical = Logical.OR)
     @PostMapping(value = "/remove")
     public ResponseVO remove(Long[] ids) {
@@ -104,12 +134,24 @@ public class RestRoleController {
         return ResultUtil.success("成功删除 [" + ids.length + "] 个角色");
     }
 
+    /**
+     * @description: 获取指定的系统角色信息
+     * @param: id
+     * @date: 2019-08-15 6:56 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions("role:edit")
     @PostMapping("/get/{id}")
     public ResponseVO get(@PathVariable Long id) {
         return ResultUtil.success(null, this.roleService.getByPrimaryKey(id));
     }
 
+    /**
+     * @description: 更新系统角色信息
+     * @param: role
+     * @date: 2019-08-15 6:57 PM
+     * @return: com.zyd.shiro.framework.object.ResponseVO
+     */
     @RequiresPermissions("role:edit")
     @PostMapping("/edit")
     public ResponseVO edit(Role role) {

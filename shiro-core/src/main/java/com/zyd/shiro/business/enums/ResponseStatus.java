@@ -1,18 +1,18 @@
 /**
  * MIT License
- *
+ * <p>
  * Copyright (c) 2018 yadong.zhang
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,11 +24,11 @@
 package com.zyd.shiro.business.enums;
 
 /**
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @website https://www.zhyd.me
- * @version 1.0
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 错误操作的提示信息
+ * @date: 2019-08-15 10:08 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public enum ResponseStatus {
 
@@ -52,6 +52,12 @@ public enum ResponseStatus {
         this.message = message;
     }
 
+    /**
+     * @description: 获取错误操作的响应状态
+     * @param: message
+     * @date: 2019-08-15 10:11 AM
+     * @return: com.zyd.shiro.business.enums.ResponseStatus
+     */
     public static ResponseStatus getResponseStatus(String message) {
         for (ResponseStatus ut : ResponseStatus.values()) {
             if (ut.getMessage() == message) {

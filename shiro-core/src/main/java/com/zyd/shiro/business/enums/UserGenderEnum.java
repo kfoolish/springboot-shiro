@@ -1,18 +1,18 @@
 /**
  * MIT License
- *
+ * <p>
  * Copyright (c) 2018 yadong.zhang
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -24,11 +24,11 @@
 package com.zyd.shiro.business.enums;
 
 /**
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @website https://www.zhyd.me
- * @version 1.0
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 用户性别信息
+ * @date: 2019-08-15 10:05 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public enum UserGenderEnum {
     MALE(1, "男"), FEMALE(0, "女"), UNKNOW(-1, "");
@@ -40,6 +40,12 @@ public enum UserGenderEnum {
         this.desc = desc;
     }
 
+    /**
+     * @description: (never used)通过code码获取用户的性别信息
+     * @param: code
+     * @date: 2019-08-15 10:05 AM
+     * @return: com.zyd.shiro.business.enums.UserGenderEnum
+     */
     public static UserGenderEnum getUserSex(Integer code) {
         if (code == null) {
             return UNKNOW;
@@ -52,14 +58,20 @@ public enum UserGenderEnum {
         return UNKNOW;
     }
 
+    /**
+     * @description: (never used)通过字符code获取用户性别信息
+     * @param: code
+     * @date: 2019-08-15 10:06 AM
+     * @return: com.zyd.shiro.business.enums.UserGenderEnum
+     */
     public static UserGenderEnum getUserSex(String code) {
         if (code == null) {
             return UNKNOW;
         }
-        if("m".equals(code)){
+        if ("m".equals(code)) {
             return MALE;
         }
-        if("f".equals(code)){
+        if ("f".equals(code)) {
             return FEMALE;
         }
         return UNKNOW;
@@ -69,6 +81,7 @@ public enum UserGenderEnum {
         return code;
     }
 
+    //the method is never used
     public String getDesc() {
         return desc;
     }

@@ -31,21 +31,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 /**
- * 自定义的异常页面配置
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 自定义异常页的配置类
+ * @date: 2019-08-15 11:40 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Component
 public class ErrorPagesConfig {
 
     /**
-     * 自定义异常处理路径
-     *
-     * @return
+     * @description: 自定义异常处理路径
+     * @param:
+     * @date: 2019-08-15 11:40 AM
+     * @return: org.springframework.boot.web.server.WebServerFactoryCustomizer<org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory>
      */
     @Bean
     public WebServerFactoryCustomizer<ConfigurableServletWebServerFactory> containerCustomizer() {

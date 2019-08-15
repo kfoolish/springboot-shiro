@@ -43,20 +43,21 @@ import java.time.Duration;
 
 
 /**
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: Redis配置类
+ * @date: 2019-08-15 11:42 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Configuration
 @EnableCaching
 public class RedisConfig extends CachingConfigurerSupport {
 
     /**
-     * 缓存数据时Key的生成器，可以依据业务和技术场景自行定制
-     *
-     * @return
+     * @description: 缓存数据时Key的生成器, 可依据业务和技术场景自行定制
+     * @param:
+     * @date: 2019-08-15 11:44 AM
+     * @return: org.springframework.cache.interceptor.KeyGenerator
      */
     @Bean
     @Override
@@ -77,7 +78,7 @@ public class RedisConfig extends CachingConfigurerSupport {
     @Bean
     public CacheManager cacheManager(RedisConnectionFactory factory) {
         return RedisCacheManager.builder(RedisCacheWriter.nonLockingRedisCacheWriter(factory))
-                // 默认缓存过期时间：天
+                // 默认缓存过期时间:30天
                 .cacheDefaults(RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofDays(30)))
                 .transactionAware()
                 .build();

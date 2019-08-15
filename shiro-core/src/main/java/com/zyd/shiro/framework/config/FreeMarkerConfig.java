@@ -28,12 +28,11 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 
 /**
- * freemarker配置类
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: FreeMarker配置类
+ * @date: 2019-08-15 11:42 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Configuration
 public class FreeMarkerConfig {
@@ -44,7 +43,10 @@ public class FreeMarkerConfig {
     protected CustomTagDirective customTagDirective;
 
     /**
-     * 添加自定义标签
+     * @description: 添加自定义标签
+     * @param:
+     * @date: 2019-08-15 11:42 AM
+     * @return: void
      */
     @PostConstruct
     public void setSharedVariable() {

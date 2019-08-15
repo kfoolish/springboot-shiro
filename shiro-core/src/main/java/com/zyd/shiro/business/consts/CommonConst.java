@@ -20,28 +20,20 @@
 package com.zyd.shiro.business.consts;
 
 /**
- * 程序中公用的常量类
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 程序中公用的常量类
+ * @date: 2019-08-15 9:22 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public class CommonConst {
-    /**
-     * 安全密码(UUID生成)，作为盐值用于用户密码的加密
-     */
+    // TODO: 8/15/2019 安全密码(由UUID生成),作为盐值用于用户密码的加密
     public static final String ZYD_SECURITY_KEY = "929123f8f17944e8b0a531045453e1f1";
 
-    /**
-     * 程序默认的错误状态码
-     */
+    // TODO: 8/15/2019 程序默认的错误状态码
     public static final int DEFAULT_ERROR_CODE = 500;
 
-    /**
-     * 程序默认的成功状态码
-     */
+    // TODO: 8/15/2019 程序默认的成功状态码
     public static final int DEFAULT_SUCCESS_CODE = 200;
 
 }

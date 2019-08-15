@@ -20,15 +20,14 @@
 package com.zyd.shiro.business.consts;
 
 /**
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @website https://www.zhyd.me
- * @version 1.0
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 程序中公用的Session常量类
+ * @date: 2019-08-15 9:30 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 public class SessionConst {
-    /**
-     * User 的 session key;k
-     */
+
+    // TODO: 8/15/2019 User 的 session-key
     public static final String USER_SESSION_KEY = "user";
 }

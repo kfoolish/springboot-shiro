@@ -19,22 +19,19 @@
  */
 package com.zyd.shiro.business.vo;
 
-import com.zyd.shiro.business.entity.Resources;
 import com.zyd.shiro.framework.object.BaseConditionVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 资源信息
+ * @date: 2019-08-15 10:26 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class ResourceConditionVO extends BaseConditionVO {
     private String type;
 }
-

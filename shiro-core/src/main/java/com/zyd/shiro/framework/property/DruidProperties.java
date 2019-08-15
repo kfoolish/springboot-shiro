@@ -28,13 +28,11 @@ import org.springframework.core.annotation.Order;
 import java.util.List;
 
 /**
- * druid属性
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/5/17 11:13
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: druid属性信息
+ * @date: 2019-08-15 11:35 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Configuration
 @ConfigurationProperties(prefix = "zyd.druid")

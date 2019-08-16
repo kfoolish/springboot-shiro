@@ -31,8 +31,8 @@ import java.util.Date;
 
 /**
  * @project: springboot-shiro
- * @description: 基础信息
- * @date: 2019-08-15 10:27 AM
+ * @description: 基础的条件值对象(Value Object)
+ * @date: 2019-08-16 4:30 PM
  * @version: 1.0
  * @website: https://yubuntu0109.github.io/
  */
@@ -55,6 +55,7 @@ public class BaseConditionVO {
         return pageSize > 0 ? pageSize : DEFAULT_PAGE_SIZE;
     }
 
+    //the method is never used
     public int getPageStart() {
         return pageNumber > 0 ? (pageNumber - 1) * getPageSize() : 0;
     }

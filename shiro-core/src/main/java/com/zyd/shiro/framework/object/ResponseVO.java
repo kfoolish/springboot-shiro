@@ -29,13 +29,11 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * controller返回json
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: Controller层需返回的json格式数据
+ * @date: 2019-08-16 4:17 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -50,10 +48,12 @@ public class ResponseVO<T> {
         this.data = data;
     }
 
+    //the constructor is never used
     public ResponseVO(ResponseStatus status, T data) {
         this(status.getCode(), status.getMessage(), data);
     }
 
+    //the method is never used
     public String toJson() {
         T t = this.getData();
         if (t instanceof List || t instanceof Collection) {

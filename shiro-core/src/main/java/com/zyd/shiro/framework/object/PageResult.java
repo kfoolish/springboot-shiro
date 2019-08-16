@@ -25,13 +25,11 @@ import lombok.EqualsAndHashCode;
 import java.util.List;
 
 /**
- * bootstrap table用到的返回json格式
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 分页结果:BootStrap table中需获取的json格式数据
+ * @date: 2019-08-16 4:17 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -44,6 +42,7 @@ public class PageResult {
         this.rows = rows;
     }
 
+    //the constructor is never used
     public PageResult() {
     }
 }

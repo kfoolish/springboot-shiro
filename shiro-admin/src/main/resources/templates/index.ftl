@@ -20,31 +20,43 @@
                                 <li>
                                     <div class="block">
                                         <div class="tags">
-                                            <a href="javascript:;" class="tag"><span>05月17日</span></a>
+                                            <a href="javascript:;" class="tag"><span>19/08/13</span></a>
+                                        </div>
+                                        <div class="block_content">
+                                            <h2 class="title"><span>拥抱该项目~ 提高代码可读性ing</span></h2>
+                                            <div class="byline"><span></span> by <a>黄宇辉</a></div>
+                                            <p class="excerpt">Stay hungray, Stay foolish. -- Steve Jobs</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="block">
+                                        <div class="tags">
+                                            <a href="javascript:;" class="tag"><span>18/05/17</span></a>
                                         </div>
                                         <div class="block_content">
                                             <h2 class="title"><span>添加Druid监控</span></h2>
                                             <div class="byline"><span></span> by <a>zyd</a></div>
-                                            <p class="excerpt">Talk is cheap, show me the code.     -- Linus Torvalds</p>
+                                            <p class="excerpt">Talk is cheap, show me the code. -- Linus Torvalds</p>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="block">
                                         <div class="tags">
-                                            <a href="javascript:;" class="tag"><span>05月16日</span></a>
+                                            <a href="javascript:;" class="tag"><span>18/05/16</span></a>
                                         </div>
                                         <div class="block_content">
                                             <h2 class="title"><span>完善代码、流程，测试角色权限</span></h2>
                                             <div class="byline"><span></span> by <a>zyd</a></div>
-                                            <p class="excerpt">Talk is cheap, show me the code.     -- Linus Torvalds</p>
+                                            <p class="excerpt">Talk is cheap, show me the code. -- Linus Torvalds</p>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="block">
                                         <div class="tags">
-                                            <a href="javascript:;" class="tag"><span>05月15日</span></a>
+                                            <a href="javascript:;" class="tag"><span>18/05/15</span></a>
                                         </div>
                                         <div class="block_content">
                                             <h2 class="title"><span>项目提交到Gitee</span></h2>

@@ -33,20 +33,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @website https://www.zhyd.me
- * @version 1.0
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 请求层的基础支架
+ * @date: 2019-08-16 2:07 PM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Slf4j
 public class RequestHolder {
 
     /**
-     * 获取request
-     *
-     * @return HttpServletRequest
+     * @description: 获取request
+     * @param:
+     * @date: 2019-08-16 2:09 PM
+     * @return: javax.servlet.http.HttpServletRequest
      */
     public static HttpServletRequest getRequest() {
         log.debug("getRequest -- Thread id :{}, name : {}", Thread.currentThread().getId(), Thread.currentThread().getName());
@@ -58,9 +58,10 @@ public class RequestHolder {
     }
 
     /**
-     * 获取Response
-     *
-     * @return HttpServletRequest
+     * @description: (never used)获取Response
+     * @param:
+     * @date: 2019-08-16 2:11 PM
+     * @return: javax.servlet.http.HttpServletResponse
      */
     public static HttpServletResponse getResponse() {
         log.debug("getResponse -- Thread id :{}, name : {}", Thread.currentThread().getId(), Thread.currentThread().getName());
@@ -72,9 +73,10 @@ public class RequestHolder {
     }
 
     /**
-     * 获取session
-     *
-     * @return HttpSession
+     * @description: (never used)获取session
+     * @param:
+     * @date: 2019-08-16 2:11 PM
+     * @return: javax.servlet.http.HttpSession
      */
     public static HttpSession getSession() {
         log.debug("getSession -- Thread id :{}, name : {}", Thread.currentThread().getId(), Thread.currentThread().getName());
@@ -86,10 +88,10 @@ public class RequestHolder {
     }
 
     /**
-     * 获取session的Attribute
-     *
-     * @param name session的key
-     * @return Object
+     * @description: 获取session中的Attribute
+     * @param: name
+     * @date: 2019-08-16 2:12 PM
+     * @return: java.lang.Object
      */
     public static Object getSession(String name) {
         log.debug("getSession -- Thread id :{}, name : {}", Thread.currentThread().getId(), Thread.currentThread().getName());
@@ -101,10 +103,11 @@ public class RequestHolder {
     }
 
     /**
-     * 添加session
-     *
-     * @param name
-     * @param value
+     * @description: 添加session
+     * @param: name
+     * @param: value
+     * @date: 2019-08-16 2:14 PM
+     * @return: void
      */
     public static void setSession(String name, Object value) {
         log.debug("setSession -- Thread id :{}, name : {}", Thread.currentThread().getId(), Thread.currentThread().getName());
@@ -116,10 +119,10 @@ public class RequestHolder {
     }
 
     /**
-     * 清除指定session
-     *
-     * @param name
-     * @return void
+     * @description: 清除指定session
+     * @param: name
+     * @date: 2019-08-16 2:15 PM
+     * @return: void
      */
     public static void removeSession(String name) {
         log.debug("removeSession -- Thread id :{}, name : {}", Thread.currentThread().getId(), Thread.currentThread().getName());
@@ -131,9 +134,10 @@ public class RequestHolder {
     }
 
     /**
-     * 获取所有session key
-     *
-     * @return String[]
+     * @description: 获取所有的session key
+     * @param:
+     * @date: 2019-08-16 2:15 PM
+     * @return: java.lang.String[]
      */
     public static String[] getSessionKeys() {
         log.debug("getSessionKeys -- Thread id :{}, name : {}", Thread.currentThread().getId(), Thread.currentThread().getName());

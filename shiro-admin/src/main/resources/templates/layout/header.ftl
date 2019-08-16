@@ -32,10 +32,10 @@
                 <div class="clearfix"></div>
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="/assets/images/loading.gif" alt="..." class="img-circle profile_img">
+                        <img src="/assets/images/default-portrait.png" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
-                        <span>早上好,</span>
+                        <span>早上好 ~</span>
                         <h2>尊敬的管理员</h2>
                     </div>
                 </div>

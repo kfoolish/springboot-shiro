@@ -37,24 +37,23 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 角色资源
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 实现角色资源相关的业务处理
+ * @date: 2019-08-17 12:55 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Service
 public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
+
     @Autowired
     private SysRoleResourcesMapper resourceMapper;
 
     /**
-     * 保存一个实体，null的属性不会保存，会使用数据库默认值
-     *
-     * @param entity
-     * @return
+     * @description: 保存一个实体, null的属性不会保存(使用数据库默认值)
+     * @param: entity
+     * @date: 2019-08-17 12:55 PM
+     * @return: com.zyd.shiro.business.entity.RoleResources
      */
     @Override
     public RoleResources insert(RoleResources entity) {
@@ -66,9 +65,10 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
     }
 
     /**
-     * 批量插入，支持批量插入的数据库可以使用，例如MySQL,H2等，另外该接口限制实体包含id属性并且必须为自增列
-     *
-     * @param entities
+     * @description: 批量插入:支持批量插入的数据库可以使用,例如MySQL,H2等,另外该接口限制实体包含id属性并且必须为自增列
+     * @param: entities
+     * @date: 2019-08-17 12:55 PM
+     * @return: void
      */
     @Override
     public void insertList(List<RoleResources> entities) {
@@ -85,11 +85,12 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
         resourceMapper.insertList(sysRoleResources);
     }
 
+
     /**
-     * 根据主键字段进行删除，方法参数必须包含完整的主键属性
-     *
-     * @param primaryKey
-     * @return
+     * @description: 根据主键字段进行删除, 方法参数必须包含完整的主键属性
+     * @param: primaryKey
+     * @date: 2019-08-17 12:56 PM
+     * @return: boolean
      */
     @Override
     public boolean removeByPrimaryKey(Long primaryKey) {
@@ -97,10 +98,10 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
     }
 
     /**
-     * 根据主键更新实体全部字段，null值会被更新
-     *
-     * @param entity
-     * @return
+     * @description: 根据主键更新实体全部字段(null值也会被更新)
+     * @param: entity
+     * @date: 2019-08-17 12:56 PM
+     * @return: boolean
      */
     @Override
     public boolean update(RoleResources entity) {
@@ -110,10 +111,10 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
     }
 
     /**
-     * 根据主键更新属性不为null的值
-     *
-     * @param entity
-     * @return
+     * @description: 根据主键更新属性不为null的值
+     * @param: entity
+     * @date: 2019-08-17 12:57 PM
+     * @return: boolean
      */
     @Override
     public boolean updateSelective(RoleResources entity) {
@@ -123,10 +124,10 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
     }
 
     /**
-     * 根据主键字段进行查询，方法参数必须包含完整的主键属性，查询条件使用等号
-     *
-     * @param primaryKey
-     * @return
+     * @description: 根据主键字段进行查询, 方法参数必须包含完整的主键属性, 查询条件使用等号
+     * @param: primaryKey
+     * @date: 2019-08-17 12:57 PM
+     * @return: com.zyd.shiro.business.entity.RoleResources
      */
     @Override
     public RoleResources getByPrimaryKey(Long primaryKey) {
@@ -136,10 +137,10 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
     }
 
     /**
-     * 根据实体中的属性进行查询，只能有一个返回值，有多个结果时抛出异常，查询条件使用等号
-     *
-     * @param entity
-     * @return
+     * @description: 根据实体中的属性进行查询, 只能有一个返回值, 有多个结果时抛出异常, 查询条件使用等号
+     * @param: entity
+     * @date: 2019-08-17 12:58 PM
+     * @return: com.zyd.shiro.business.entity.RoleResources
      */
     @Override
     public RoleResources getOneByEntity(RoleResources entity) {
@@ -149,9 +150,10 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
     }
 
     /**
-     * 查询全部结果，listByEntity(null)方法能达到同样的效果
-     *
-     * @return
+     * @description: 查询全部结果, listByEntity(null)方法能达到同样的效果
+     * @param:
+     * @date: 2019-08-17 12:58 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.RoleResources>
      */
     @Override
     public List<RoleResources> listAll() {
@@ -160,10 +162,10 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
     }
 
     /**
-     * 根据实体中的属性值进行查询，查询条件使用等号
-     *
-     * @param entity
-     * @return
+     * @description: 根据实体中的属性值进行查询, 查询条件使用等号
+     * @param: entity
+     * @date: 2019-08-17 12:58 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.RoleResources>
      */
     @Override
     public List<RoleResources> listByEntity(RoleResources entity) {
@@ -172,23 +174,13 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
         return getRoleResources(sysRoleResources);
     }
 
-    private List<RoleResources> getRoleResources(List<SysRoleResources> sysRoleResources) {
-        if (CollectionUtils.isEmpty(sysRoleResources)) {
-            return null;
-        }
-        List<RoleResources> rr = new ArrayList<>();
-        for (SysRoleResources r : sysRoleResources) {
-            rr.add(new RoleResources(r));
-        }
-        return rr;
-    }
 
     /**
-     * 添加角色资源
-     * 该节代码参考自http://blog.csdn.net/poorcoder_/article/details/71374002
-     *
-     * @param roleId
-     * @param resourcesIds
+     * @description: 添加角色资源, 该节代码参考自: http://blog.csdn.net/poorcoder_/article/details/71374002
+     * @param: roleId
+     * @param: resourcesIds
+     * @date: 2019-08-17 1:04 PM
+     * @return: void
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = {Exception.class})
@@ -223,9 +215,10 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
     }
 
     /**
-     * 通过角色id批量删除
-     *
-     * @param roleId
+     * @description: 通过角色id批量删除
+     * @param: roleId
+     * @date: 2019-08-17 1:04 PM
+     * @return: void
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = {Exception.class})
@@ -235,5 +228,22 @@ public class SysRoleResourcesServiceImpl implements SysRoleResourcesService {
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("roleId", roleId);
         resourceMapper.deleteByExample(example);
+    }
+
+    /**
+     * @description: 抽取所有角色资源信息
+     * @param: sysRoleResources
+     * @date: 2019-08-17 12:59 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.RoleResources>
+     */
+    private List<RoleResources> getRoleResources(List<SysRoleResources> sysRoleResources) {
+        if (CollectionUtils.isEmpty(sysRoleResources)) {
+            return null;
+        }
+        List<RoleResources> rr = new ArrayList<>();
+        for (SysRoleResources r : sysRoleResources) {
+            rr.add(new RoleResources(r));
+        }
+        return rr;
     }
 }

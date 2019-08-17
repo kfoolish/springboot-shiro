@@ -34,13 +34,11 @@ import org.springframework.util.CollectionUtils;
 import java.util.*;
 
 /**
- * 角色
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 实现角色相关的业务处理
+ * @date: 2019-08-17 11:29 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Service
 public class SysRoleServiceImpl implements SysRoleService {
@@ -49,10 +47,10 @@ public class SysRoleServiceImpl implements SysRoleService {
     private SysRoleMapper roleMapper;
 
     /**
-     * 获取ztree使用的角色列表
-     *
-     * @param userId
-     * @return
+     * @description: 获取ztree使用的角色列表
+     * @param: userId
+     * @date: 2019-08-17 11:30 AM
+     * @return: java.util.List<java.util.Map < java.lang.String, java.lang.Object>>
      */
     @Override
     public List<Map<String, Object>> queryRoleListWithSelected(Integer userId) {
@@ -74,10 +72,10 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     /**
-     * 分页查询
-     *
-     * @param vo
-     * @return
+     * @description: 分页查询系统角色信息
+     * @param: vo
+     * @date: 2019-08-17 11:30 AM
+     * @return: com.github.pagehelper.PageInfo<com.zyd.shiro.business.entity.Role>
      */
     @Override
     public PageInfo<Role> findPageBreakByCondition(RoleConditionVO vo) {
@@ -96,10 +94,10 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     /**
-     * 获取用户的角色
-     *
-     * @param userId
-     * @return
+     * @description: 获取用户所拥有的角色信息
+     * @param: userId
+     * @date: 2019-08-17 11:32 AM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Role>
      */
     @Override
     public List<Role> listRolesByUserId(Long userId) {
@@ -115,10 +113,10 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     /**
-     * 保存一个实体，null的属性不会保存，会使用数据库默认值
-     *
-     * @param entity
-     * @return
+     * @description: 保存一个实体, null的属性不会保存(会使用数据库默认值)
+     * @param: entity
+     * @date: 2019-08-17 11:33 AM
+     * @return: com.zyd.shiro.business.entity.Role
      */
     @Override
     public Role insert(Role entity) {
@@ -130,9 +128,10 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     /**
-     * 批量插入，支持批量插入的数据库可以使用，例如MySQL,H2等，另外该接口限制实体包含id属性并且必须为自增列
-     *
-     * @param entities
+     * @description: 批量插入:支持批量插入的数据库可以使用,例如MySQL,H2等,另外该接口限制实体包含id属性并且必须为自增列
+     * @param: entities
+     * @date: 2019-08-17 11:34 AM
+     * @return: void
      */
     @Override
     public void insertList(List<Role> entities) {
@@ -146,11 +145,11 @@ public class SysRoleServiceImpl implements SysRoleService {
         roleMapper.insertList(sysRole);
     }
 
-    /**
-     * 根据主键字段进行删除，方法参数必须包含完整的主键属性
-     *
-     * @param primaryKey
-     * @return
+    /***
+     *@description: 根据主键字段进行删除, 方法参数必须包含完整的主键属性
+     *@param: primaryKey
+     *@date: 2019-08-17 11:36 AM
+     *@return: boolean
      */
     @Override
     public boolean removeByPrimaryKey(Long primaryKey) {
@@ -158,10 +157,10 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     /**
-     * 根据主键更新实体全部字段，null值会被更新
-     *
-     * @param entity
-     * @return
+     * @description: 根据主键更新实体全部字段, null值会被更新
+     * @param: entity
+     * @date: 2019-08-17 11:36 AM
+     * @return: boolean
      */
     @Override
     public boolean update(Role entity) {
@@ -171,10 +170,10 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     /**
-     * 根据主键更新属性不为null的值
-     *
-     * @param entity
-     * @return
+     * @description: 根据主键更新属性不为null的值
+     * @param: entity
+     * @date: 2019-08-17 11:36 AM
+     * @return: boolean
      */
     @Override
     public boolean updateSelective(Role entity) {
@@ -184,10 +183,10 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     /**
-     * 根据主键字段进行查询，方法参数必须包含完整的主键属性，查询条件使用等号
-     *
-     * @param primaryKey
-     * @return
+     * @description: 根据主键字段进行查询, 方法参数必须包含完整的主键属性, 查询条件使用等号
+     * @param: primaryKey
+     * @date: 2019-08-17 11:37 AM
+     * @return: com.zyd.shiro.business.entity.Role
      */
     @Override
     public Role getByPrimaryKey(Long primaryKey) {
@@ -197,10 +196,10 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     /**
-     * 根据实体中的属性进行查询，只能有一个返回值，有多个结果时抛出异常，查询条件使用等号
-     *
-     * @param entity
-     * @return
+     * @description: 根据实体中的属性进行查询, 只能有一个返回值, 有多个结果时抛出异常, 查询条件使用等号
+     * @param: entity
+     * @date: 2019-08-17 11:37 AM
+     * @return: com.zyd.shiro.business.entity.Role
      */
     @Override
     public Role getOneByEntity(Role entity) {
@@ -210,9 +209,10 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     /**
-     * 查询全部结果，listByEntity(null)方法能达到同样的效果
-     *
-     * @return
+     * @description: 获取所有角色信息, listByEntity(null)方法能达到同样的效果
+     * @param:
+     * @date: 2019-08-17 11:38 AM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Role>
      */
     @Override
     public List<Role> listAll() {
@@ -221,10 +221,10 @@ public class SysRoleServiceImpl implements SysRoleService {
     }
 
     /**
-     * 根据实体中的属性值进行查询，查询条件使用等号
-     *
-     * @param entity
-     * @return
+     * @description: 根据实体中的属性值进行查询, 查询条件使用等号
+     * @param: entity
+     * @date: 2019-08-17 11:40 AM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Role>
      */
     @Override
     public List<Role> listByEntity(Role entity) {
@@ -233,6 +233,12 @@ public class SysRoleServiceImpl implements SysRoleService {
         return getRole(sysRole);
     }
 
+    /***
+     *@description: 抽取所用角色信息
+     *@param: sysRole
+     *@date: 2019-08-17 11:40 AM
+     *@return: java.util.List<com.zyd.shiro.business.entity.Role>
+     */
     private List<Role> getRole(List<SysRole> sysRole) {
         if (CollectionUtils.isEmpty(sysRole)) {
             return null;
@@ -243,4 +249,5 @@ public class SysRoleServiceImpl implements SysRoleService {
         }
         return roleList;
     }
+
 }

@@ -45,13 +45,11 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 用户
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 实现用户相关的业务处理
+ * @date: 2019-08-17 8:36 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Slf4j
 @Service
@@ -61,8 +59,14 @@ public class SysUserServiceImpl implements SysUserService {
     private SysUserMapper sysUserMapper;
 
     @Autowired
-    private SysRoleService roleService;
+    private SysRoleService roleService; //never accessed
 
+    /**
+     * @description: 添加新用户信息
+     * @param: user
+     * @date: 2019-08-17 8:38 AM
+     * @return: com.zyd.shiro.business.entity.User
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public User insert(User user) {
@@ -75,6 +79,12 @@ public class SysUserServiceImpl implements SysUserService {
         return user;
     }
 
+    /**
+     * @description: 批量插入:支持批量插入的数据库可以使用, 例如MySQL, H2等. 另外该接口限制实体包含id属性并且必须为自增列
+     * @param: users
+     * @date: 2019-08-17 8:45 AM
+     * @return: void
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void insertList(List<User> users) {
@@ -91,10 +101,10 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     /**
-     * 根据主键字段进行删除，方法参数必须包含完整的主键属性
-     *
-     * @param primaryKey
-     * @return
+     * @description: 根据主键字段进行删除, 方法参数必须包含完整的主键属性
+     * @param: primaryKey
+     * @date: 2019-08-17 9:01 AM
+     * @return: boolean
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -102,6 +112,12 @@ public class SysUserServiceImpl implements SysUserService {
         return sysUserMapper.deleteByPrimaryKey(primaryKey) > 0;
     }
 
+    /**
+     * @description: 更新用户信息
+     * @param: user
+     * @date: 2019-08-17 9:02 AM
+     * @return: boolean
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean update(User user) {
@@ -117,6 +133,12 @@ public class SysUserServiceImpl implements SysUserService {
         return sysUserMapper.updateByPrimaryKey(user.getSysUser()) > 0;
     }
 
+    /**
+     * @description: 选择性地更新用户信息
+     * @param: user
+     * @date: 2019-08-17 9:04 AM
+     * @return: boolean
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean updateSelective(User user) {
@@ -136,12 +158,11 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     /**
-     * 根据主键字段进行查询，方法参数必须包含完整的主键属性，查询条件使用等号
-     *
-     * @param primaryKey
-     * @return
+     * @description: 根据主键字段进行查询, 方法参数必须包含完整的主键属性, 查询条件使用等号
+     * @param: primaryKey
+     * @date: 2019-08-17 9:08 AM
+     * @return: com.zyd.shiro.business.entity.User
      */
-
     @Override
     public User getByPrimaryKey(Long primaryKey) {
         Assert.notNull(primaryKey, "PrimaryKey不可为空！");
@@ -150,10 +171,10 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     /**
-     * 根据实体中的属性进行查询，只能有一个返回值，有多个结果时抛出异常，查询条件使用等号
-     *
-     * @param entity
-     * @return
+     * @description: 根据实体中的属性进行查询, 只能有一个返回值, 有多个结果时抛出异常, 查询条件使用等号
+     * @param: entity
+     * @date: 2019-08-17 11:02 AM
+     * @return: com.zyd.shiro.business.entity.User
      */
     @Override
     public User getOneByEntity(User entity) {
@@ -162,10 +183,15 @@ public class SysUserServiceImpl implements SysUserService {
         return null == sysUser ? null : new User(sysUser);
     }
 
+    /**
+     * @description: 获取所有用户列表
+     * @param:
+     * @date: 2019-08-17 11:02 AM
+     * @return: java.util.List<com.zyd.shiro.business.entity.User>
+     */
     @Override
     public List<User> listAll() {
         List<SysUser> sysUsers = sysUserMapper.selectAll();
-
         if (CollectionUtils.isEmpty(sysUsers)) {
             return null;
         }
@@ -176,6 +202,12 @@ public class SysUserServiceImpl implements SysUserService {
         return users;
     }
 
+    /**
+     * @description: 根据实体中的属性值进行查询, 查询条件使用等号
+     * @param: user
+     * @date: 2019-08-17 11:03 AM
+     * @return: java.util.List<com.zyd.shiro.business.entity.User>
+     */
     @Override
     public List<User> listByEntity(User user) {
         Assert.notNull(user, "User不可为空！");
@@ -191,10 +223,10 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     /**
-     * 分页查询
-     *
-     * @param vo
-     * @return
+     * @description: 分页查询用户信息
+     * @param: vo
+     * @date: 2019-08-17 11:05 AM
+     * @return: com.github.pagehelper.PageInfo<com.zyd.shiro.business.entity.User>
      */
     @Override
     public PageInfo<User> findPageBreakByCondition(UserConditionVO vo) {
@@ -213,10 +245,10 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     /**
-     * 更新用户最后一次登录的状态信息
-     *
-     * @param user
-     * @return
+     * @description: 更新用户最后一次登录的状态信息
+     * @param: user
+     * @date: 2019-08-17 11:06 AM
+     * @return: com.zyd.shiro.business.entity.User
      */
     @Override
     public User updateUserLastLoginInfo(User user) {
@@ -231,10 +263,10 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     /**
-     * 根据用户名查找
-     *
-     * @param userName
-     * @return
+     * @description: 根据用户名获取指定的用户信息
+     * @param: userName
+     * @date: 2019-08-17 11:08 AM
+     * @return: com.zyd.shiro.business.entity.User
      */
     @Override
     public User getByUserName(String userName) {
@@ -243,10 +275,10 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     /**
-     * 通过角色Id获取用户列表
-     *
-     * @param roleId
-     * @return
+     * @description: 通过角色id获取用户列表
+     * @param: roleId
+     * @date: 2019-08-17 11:10 AM
+     * @return: java.util.List<com.zyd.shiro.business.entity.User>
      */
     @Override
     public List<User> listByRoleId(Long roleId) {

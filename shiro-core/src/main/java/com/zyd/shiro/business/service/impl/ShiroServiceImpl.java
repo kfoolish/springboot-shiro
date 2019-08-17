@@ -45,13 +45,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Shiro-权限相关的业务处理
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/25 14:37
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 实现Shiro权限相关的业务处理
+ * @date: 2019-08-17 12:55 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Slf4j
 @Service
@@ -63,18 +61,21 @@ public class ShiroServiceImpl implements ShiroService {
     private SysUserService userService;
 
     /**
-     * 初始化权限
+     * @description: 初始化权限
+     * @param:
+     * @date: 2019-08-17 1:06 PM
+     * @return: java.util.Map<java.lang.String, java.lang.String>
      */
     @Override
     public Map<String, String> loadFilterChainDefinitions() {
         /*
             配置访问权限
             - anon:所有url都都可以匿名访问
-            - authc: 需要认证才能进行访问（此处指所有非匿名的路径都需要登陆才能访问）
+            - authc: 需要认证才能进行访问(此处指所有非匿名的路径都需要登陆才能访问)
             - user:配置记住我或认证通过可以访问
          */
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
-        // 配置退出过滤器,其中的具体的退出代码Shiro已经替我们实现了
+        // 配置退出过滤器(注:其中的具体的注销代码Shiro已经替我们实现咯)
         filterChainDefinitionMap.put("/passport/logout", "logout");
         filterChainDefinitionMap.put("/passport/login", "anon");
         filterChainDefinitionMap.put("/passport/signin", "anon");
@@ -89,13 +90,17 @@ public class ShiroServiceImpl implements ShiroService {
                 filterChainDefinitionMap.put(resources.getUrl(), permission);
             }
         }
-        // 本例子中并不存在什么特别关键的操作，所以直接使用user认证。如果有朋友是参考本例子的shiro开发其他安全功能（比如支付等）时，建议针对这类操作使用authc权限 by yadong.zhang
+        // 本项目中并不存在什么特别关键的操作,所以直接使用user认证
+        // 如果有朋友是参考本例子的shiro开发其他安全功能(比如支付等)时,建议针对这类操作使用authc权限 by yadong.zhang
         filterChainDefinitionMap.put("/**", "user");
         return filterChainDefinitionMap;
     }
 
     /**
-     * 重新加载权限
+     * @description: 重新加载权限
+     * @param:
+     * @date: 2019-08-17 1:10 PM
+     * @return: void
      */
     @Override
     public void updatePermission() {
@@ -107,14 +112,13 @@ public class ShiroServiceImpl implements ShiroService {
             } catch (Exception e) {
                 throw new RuntimeException("get ShiroFilter from shiroFilterFactoryBean error!");
             }
-
             PathMatchingFilterChainResolver filterChainResolver = (PathMatchingFilterChainResolver) shiroFilter.getFilterChainResolver();
             DefaultFilterChainManager manager = (DefaultFilterChainManager) filterChainResolver.getFilterChainManager();
 
             // 清空老的权限控制
             manager.getFilterChains().clear();
-
             shirFilter.getFilterChainDefinitionMap().clear();
+            // 重新初始化过滤链
             shirFilter.setFilterChainDefinitionMap(loadFilterChainDefinitions());
             // 重新构建生成
             Map<String, String> chains = shirFilter.getFilterChainDefinitionMap();
@@ -127,9 +131,10 @@ public class ShiroServiceImpl implements ShiroService {
     }
 
     /**
-     * 重新加载用户权限
-     *
-     * @param user
+     * @description: 重新加载用户权限
+     * @param: user
+     * @date: 2019-08-17 1:11 PM
+     * @return: void
      */
     @Override
     public void reloadAuthorizingByUserId(User user) {
@@ -147,9 +152,10 @@ public class ShiroServiceImpl implements ShiroService {
     }
 
     /**
-     * 重新加载所有拥有roleId角色的用户的权限
-     *
-     * @param roleId
+     * @description: 重新加载所有拥有roleId角色的用户的权限
+     * @param: roleId
+     * @date: 2019-08-17 1:11 PM
+     * @return: void
      */
     @Override
     public void reloadAuthorizingByRoleId(Long roleId) {

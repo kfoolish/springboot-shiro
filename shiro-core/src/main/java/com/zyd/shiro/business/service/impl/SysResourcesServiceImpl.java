@@ -34,13 +34,11 @@ import org.springframework.util.CollectionUtils;
 import java.util.*;
 
 /**
- * 系统资源
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/16 16:26
- * @since 1.0
+ * @project: springboot-shiro
+ * @description: 实现系统资源相关的业务处理
+ * @date: 2019-08-17 11:45 AM
+ * @version: 1.0
+ * @website: https://yubuntu0109.github.io/
  */
 @Service
 public class SysResourcesServiceImpl implements SysResourcesService {
@@ -49,10 +47,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     private SysResourceMapper resourceMapper;
 
     /**
-     * 分页查询
-     *
-     * @param vo
-     * @return
+     * @description: 分页查询系统资源信息
+     * @param: vo
+     * @date: 2019-08-17 11:45 AM
+     * @return: com.github.pagehelper.PageInfo<com.zyd.shiro.business.entity.Resources>
      */
     @Override
     public PageInfo<Resources> findPageBreakByCondition(ResourceConditionVO vo) {
@@ -71,10 +69,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 获取用户的资源列表
-     *
-     * @param map
-     * @return
+     * @description: 获取用户所拥有的资源列表
+     * @param: map
+     * @date: 2019-08-17 12:27 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Resources>
      */
     @Override
     public List<Resources> listUserResources(Map<String, Object> map) {
@@ -90,10 +88,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 获取ztree使用的资源列表
-     *
-     * @param rid
-     * @return
+     * @description: 获取ztree使用的资源列表
+     * @param: rid
+     * @date: 2019-08-17 12:28 PM
+     * @return: java.util.List<java.util.Map < java.lang.String, java.lang.Object>>
      */
     @Override
     public List<Map<String, Object>> queryResourcesListWithSelected(Long rid) {
@@ -115,9 +113,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 获取资源的url和permission
-     *
-     * @return
+     * @description: 获取资源的url和permission
+     * @param:
+     * @date: 2019-08-17 12:29 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Resources>
      */
     @Override
     public List<Resources> listUrlAndPermission() {
@@ -126,9 +125,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 获取所有可用的菜单资源
-     *
-     * @return
+     * @description: 获取所有可用的菜单资源
+     * @param:
+     * @date: 2019-08-17 12:29 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Resources>
      */
     @Override
     public List<Resources> listAllAvailableMenu() {
@@ -137,15 +137,15 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 获取父级资源下所有menu资源
-     *
-     * @param pid
-     * @return
+     * @description: 获取父级资源下所有的menu资源
+     * @param: pid
+     * @date: 2019-08-17 12:30 PM
+     * @return: java.util.List<java.util.Map < java.lang.String, java.lang.Object>>
      */
     @Override
     public List<Map<String, Object>> listChildMenuByPid(Long pid) {
         List<SysResources> sysResources = resourceMapper.listMenuResourceByPid(pid);
-        if(CollectionUtils.isEmpty(sysResources)){
+        if (CollectionUtils.isEmpty(sysResources)) {
             return null;
         }
         List<Map<String, Object>> result = new LinkedList<>();
@@ -160,10 +160,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 获取用户关联的所有资源
-     *
-     * @param userId
-     * @return
+     * @description: 获取用户关联的所有资源
+     * @param: userId
+     * @date: 2019-08-17 12:31 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Resources>
      */
     @Override
     public List<Resources> listByUserId(Long userId) {
@@ -172,10 +172,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 保存一个实体，null的属性不会保存，会使用数据库默认值
-     *
-     * @param entity
-     * @return
+     * @description: 保存一个实体, null的属性不会保存(会使用数据库默认值)
+     * @param: entity
+     * @date: 2019-08-17 12:31 PM
+     * @return: com.zyd.shiro.business.entity.Resources
      */
     @Override
     public Resources insert(Resources entity) {
@@ -187,9 +187,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 批量插入，支持批量插入的数据库可以使用，例如MySQL,H2等，另外该接口限制实体包含id属性并且必须为自增列
-     *
-     * @param entities
+     * @description: 批量插入:支持批量插入的数据库可以使用，例如MySQL,H2等，另外该接口限制实体包含id属性并且必须为自增列
+     * @param: entities
+     * @date: 2019-08-17 12:31 PM
+     * @return: void
      */
     @Override
     public void insertList(List<Resources> entities) {
@@ -204,10 +205,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 根据主键字段进行删除，方法参数必须包含完整的主键属性
-     *
-     * @param primaryKey
-     * @return
+     * @description: 根据主键字段进行删除, 方法参数必须包含完整的主键属性
+     * @param: primaryKey
+     * @date: 2019-08-17 12:32 PM
+     * @return: boolean
      */
     @Override
     public boolean removeByPrimaryKey(Long primaryKey) {
@@ -215,10 +216,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 根据主键更新实体全部字段，null值会被更新
-     *
-     * @param entity
-     * @return
+     * @description: 根据主键更新实体全部字段(null值也会被更新)
+     * @param: entity
+     * @date: 2019-08-17 12:32 PM
+     * @return: boolean
      */
     @Override
     public boolean update(Resources entity) {
@@ -228,10 +229,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 根据主键更新属性不为null的值
-     *
-     * @param entity
-     * @return
+     * @description: 根据主键更新属性不为null的值
+     * @param: entity
+     * @date: 2019-08-17 12:33 PM
+     * @return: boolean
      */
     @Override
     public boolean updateSelective(Resources entity) {
@@ -241,10 +242,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 根据主键字段进行查询，方法参数必须包含完整的主键属性，查询条件使用等号
-     *
-     * @param primaryKey
-     * @return
+     * @description: 根据主键字段进行查询, 方法参数必须包含完整的主键属性, 查询条件使用等号
+     * @param: primaryKey
+     * @date: 2019-08-17 12:33 PM
+     * @return: com.zyd.shiro.business.entity.Resources
      */
     @Override
     public Resources getByPrimaryKey(Long primaryKey) {
@@ -254,10 +255,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 根据实体中的属性进行查询，只能有一个返回值，有多个结果时抛出异常，查询条件使用等号
-     *
-     * @param entity
-     * @return
+     * @description: 根据实体中的属性进行查询, 只能有一个返回值, 有多个结果时抛出异常, 查询条件使用等号
+     * @param: entity
+     * @date: 2019-08-17 12:34 PM
+     * @return: com.zyd.shiro.business.entity.Resources
      */
     @Override
     public Resources getOneByEntity(Resources entity) {
@@ -267,9 +268,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 查询全部结果，listByEntity(null)方法能达到同样的效果
-     *
-     * @return
+     * @description: 查询全部结果, listByEntity(null)方法能达到同样的效果
+     * @param:
+     * @date: 2019-08-17 12:34 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Resources>
      */
     @Override
     public List<Resources> listAll() {
@@ -278,10 +280,10 @@ public class SysResourcesServiceImpl implements SysResourcesService {
     }
 
     /**
-     * 根据实体中的属性值进行查询，查询条件使用等号
-     *
-     * @param entity
-     * @return
+     * @description: 根据实体中的属性值进行查询, 查询条件使用等号
+     * @param: entity
+     * @date: 2019-08-17 12:34 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Resources>
      */
     @Override
     public List<Resources> listByEntity(Resources entity) {
@@ -290,6 +292,12 @@ public class SysResourcesServiceImpl implements SysResourcesService {
         return getResources(sysResources);
     }
 
+    /**
+     * @description: 抽取所有系统资源信息
+     * @param: sysResources
+     * @date: 2019-08-17 12:35 PM
+     * @return: java.util.List<com.zyd.shiro.business.entity.Resources>
+     */
     private List<Resources> getResources(List<SysResources> sysResources) {
         if (CollectionUtils.isEmpty(sysResources)) {
             return null;
